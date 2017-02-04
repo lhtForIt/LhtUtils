@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/actionbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff6655">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/back"
+        app:layout_heightPercent="100%h"
+        app:layout_widthPercent="20%w" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_toRightOf="@id/back"
+        app:layout_heightPercent="100%h"
+        app:layout_widthPercent="60%w" />
+
+
+    <ImageView
+        android:id="@+id/Settings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/setting"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp"
+        android:layout_toRightOf="@id/content"
+        app:layout_heightPercent="100%h"
+        app:layout_widthPercent="20%w" />
+
+
+</com.zhy.android.percent.support.PercentRelativeLayout>
