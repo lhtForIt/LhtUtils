@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class MainActivity extends BaseActivity {
     private TextView tv;
     private EditText et;
     private MyBroadcastreceiver myBroadcastreceiver;
+    private RadioButton radioButton;
 
 
     @Override
@@ -42,6 +44,13 @@ public class MainActivity extends BaseActivity {
         setting = (ImageView) findViewById(R.id.Settings);
         tv = (TextView) findViewById(R.id.tt);
         et = (EditText) findViewById(R.id.et);
+        radioButton = (RadioButton) findViewById(R.id.rb2);
+        BadgeViewNotAccurate badge = new BadgeViewNotAccurate(MainActivity.this);
+        badge.setTargetView(radioButton);
+        badge.setBadgeCount(99);
+//        BadgeView badge = new BadgeView(this, radioButton);
+//        badge.setText("9");
+//        badge.show();
         IntentFilter inf = new IntentFilter();
         inf.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         myBroadcastreceiver = new MyBroadcastreceiver();
