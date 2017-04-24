@@ -2,6 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lht.utils.lhtutils">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--shareSDK权限-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -38,7 +53,11 @@
         <activity android:name=".Activity.MainActivity">
 
         </activity>
-        <activity android:name=".Activity.Chat">
+        <activity
+            android:name=".Activity.Chat"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+
+
 
         </activity>
         <activity android:name=".Activity.PullToRefesh">
@@ -86,20 +105,94 @@
 
         <activity android:name=".Activity.ListView_EmptyViewTest">
 
+
+        </activity>
+
+        <activity android:name=".Kongjian_5_0.RecyclerViewTest">
+
+
+        </activity>
+        <activity android:name=".Test.ErJiXuanXiang">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+        </activity>
+
+        <activity android:name=".ZoomImageViewDemo.ViewPagerSampleActivity">
+
 
         </activity>
+
+        <activity android:name=".ShareSdk.ShareSdk">
+
+
+        </activity>
+
+        <activity android:name=".HuanXin.Login">
+
+        </activity>
+        <activity android:name=".HuanXin.Register"></activity>
+        <activity android:name=".Test.LHTToast">
+
+
+        </activity>
+        <activity android:name=".WXPay.PayActivity">
+
+
+
+        </activity>
+
+        <!--微信支付接入-->
+        <activity
+            android:name=".WXPay.WXApi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <receiver android:name=".WXPay.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+
+        <!--shareSDK分享回调-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
+            <intent-filter>
+                <data android:scheme="tencent1104867170" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 新浪微博客户端分享回调必须配置 -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--微信分享回调 -->
+        <activity
+            android:name="cn.sharesdk.demo.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
         <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
-            android:value="1196170302178697#时间财富test" />
+            android:value="1196170302178697#sjcfwk" />
         <!-- 声明SDK所需的service SDK核心功能-->
         <service
             android:name="com.hyphenate.chat.EMChatService"

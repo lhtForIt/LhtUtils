@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lht.utils.lhtutils.R;
@@ -58,10 +61,15 @@ public class ChatAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         if (convertView == null || convertView.getTag() == null) {
+
             convertView = LayoutInflater.from(context).inflate(R.layout.listview_item, null);
             id = new ID();
             id.tv_left = (TextView) convertView.findViewById(R.id.me);
             id.tv_right = (TextView) convertView.findViewById(R.id.you);
+            id.iv_left = (ImageView) convertView.findViewById(R.id.iv_me);
+            id.iv_right = (ImageView) convertView.findViewById(R.id.iv_you);
+            id.ll = (LinearLayout) convertView.findViewById(R.id.ll);
+            id.rl = (RelativeLayout) convertView.findViewById(R.id.rl);
             convertView.setTag(id);
 
         } else {
@@ -70,12 +78,12 @@ public class ChatAdapter extends BaseAdapter {
 
 
         if (getItemViewType(position) == Msg.TYPE_RECIVE) {
-            id.tv_right.setVisibility(View.VISIBLE);
-            id.tv_left.setVisibility(View.GONE);
+            id.rl.setVisibility(View.VISIBLE);
+            id.ll.setVisibility(View.GONE);
             id.tv_right.setText(list_msg.get(position).getContent());
         } else {
-            id.tv_left.setVisibility(View.VISIBLE);
-            id.tv_right.setVisibility(View.GONE);
+            id.ll.setVisibility(View.VISIBLE);
+            id.rl.setVisibility(View.GONE);
             id.tv_left.setText(list_msg.get(position).getContent());
         }
 
@@ -84,6 +92,10 @@ public class ChatAdapter extends BaseAdapter {
 
     class ID{
 
+        private ImageView iv_left;
+        private ImageView iv_right;
+        private LinearLayout ll;
+        private RelativeLayout rl;
         private TextView tv_left;
         private TextView tv_right;
 

@@ -1,1 +1,1 @@
-include ':app', ':localbrodcastreceiver'
+include ':app', ':localbrodcastreceiver', ':easychatdemo'

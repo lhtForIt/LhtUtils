@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
@@ -68,7 +67,7 @@ public class OkhttpTool {
     }
 
 
-    public static void get(String url, Callback callback) {
+    public void get(String url, Callback callback) {
 
         request = new Request.Builder()
                 .url(url)
@@ -80,12 +79,12 @@ public class OkhttpTool {
     }
 
 
-    public static void post(String url, Map<String, Objects> map, Callback callback) {
+    public void post(String url, Map<String, Object> map, Callback callback) {
 
         FormBody.Builder formBody = new FormBody.Builder();
 
         if (null != map) {
-            for (Map.Entry<String, Objects> entity : map.entrySet()) {
+            for (Map.Entry<String, Object> entity : map.entrySet()) {
                 try {
                     String o = URLEncoder.encode(String.valueOf(entity.getValue()), "GBK");
                     formBody.add(entity.getKey(), o);
@@ -106,7 +105,7 @@ public class OkhttpTool {
 
 
     //单张图片上传
-    public static void upLoadImage(String url, File f, Callback callback) {
+    public void upLoadImage(String url, File f, Callback callback) {
 
         MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.setType(MultipartBody.FORM);

@@ -3,6 +3,7 @@ package com.lht.utils.lhtutils.Kongjian_5_0;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.lht.utils.lhtutils.Activity.BaseActivity;
@@ -25,6 +26,9 @@ public class TabLayoutTest extends BaseActivity{
 
         tab = (TabLayout) findViewById(R.id.tab);
         tv = (TextView) findViewById(R.id.tv);
+        tab.getTabAt(1).setText("你猜我是谁？");
+        Log.d("lht", "=====================tab.getChildCount()"+tab.getChildCount());
+        tab.removeTabAt(3);
         tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -53,6 +57,7 @@ public class TabLayoutTest extends BaseActivity{
 
             }
 
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
@@ -63,6 +68,7 @@ public class TabLayoutTest extends BaseActivity{
 
             }
         });
+
 
 
     }

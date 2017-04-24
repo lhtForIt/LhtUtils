@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LhtUtils.iml" filepath="$PROJECT_DIR$/LhtUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easychatdemo/easychatdemo.iml" filepath="$PROJECT_DIR$/easychatdemo/easychatdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/localbrodcastreceiver/localbrodcastreceiver.iml" filepath="$PROJECT_DIR$/localbrodcastreceiver/localbrodcastreceiver.iml" />
     </modules>
   </component>

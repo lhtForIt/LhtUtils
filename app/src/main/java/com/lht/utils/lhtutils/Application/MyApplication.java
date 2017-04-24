@@ -14,9 +14,7 @@ import com.hyphenate.chat.EMOptions;
 
 public class MyApplication extends Application{
 
-    Context context;
-
-
+    private Context context;
 
     @Override
     public void onCreate() {
@@ -27,10 +25,15 @@ public class MyApplication extends Application{
         EMOptions options = new EMOptions();
 // 默认添加好友时，是不需要验证的，改成需要验证
         options.setAcceptInvitationAlways(false);
+//自动登录开关
+        options.setAutoLogin(false);
+//初始化华为推送服务
+//        options.setHuaweiPushAppId("10858777");
 //初始化
         EMClient.getInstance().init(this, options);
 //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
         EMClient.getInstance().setDebugMode(true);
+//easeUI初始化
     }
 
     @Override
@@ -53,4 +56,7 @@ public class MyApplication extends Application{
         Log.d("MyApplication", "================onLowMemory");
         super.onLowMemory();
     }
+
+
+
 }
